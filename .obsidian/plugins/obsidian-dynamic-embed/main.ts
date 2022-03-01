@@ -1,25 +1,30 @@
-import { Plugin } from "obsidian";
+import { Plugin, MarkdownRenderer } from "obsidian";
 
 export default class ExamplePlugin extends Plugin {
-  async onload() {
-    this.registerMarkdownCodeBlockProcessor("dynamic-embed", (source, el, ctx) => {
-    //   const rows = source.split("\n").filter((row) => row.length > 0);
-    console.log(source);
-    console.log(el);
-    console.log(ctx);
+    async onload() {
+        this.registerMarkdownCodeBlockProcessor("dynamic-embed", (source, el, ctx) => {
+            const pattern = /\[\[([^\[\]]+?)\]\]/u;
+            const fileNameMatch = pattern.exec(source);
 
-    //   const table = el.createEl("table");
-    //   const body = table.createEl("tbody");
+            if (!fileNameMatch) {
+                el.createEl("pre", { text: "Dynamic Embed: Error: Bad file link", cls: ["dynamic-embed", "dynamic-embed-error"] });
+                return;
+            }
+            const fileName = fileNameMatch[1];
 
-    //   for (let i = 0; i < rows.length; i++) {
-    //     const cols = rows[i].split(",");
+            const vaultMdFiles = this.app.vault.getMarkdownFiles();
+            const matchingFile = vaultMdFiles.filter((e) => e.basename === fileName).first();
 
-    //     const row = body.createEl("tr");
+            if (!matchingFile) {
+                el.createEl("pre", { text: "Dynamic Embed: Error: File link not found", cls: ["dynamic-embed", "dynamic-embed-error"] });
+                return;
+            }
 
-    //     for (let j = 0; j < cols.length; j++) {
-    //       row.createEl("td", { text: cols[j] });
-    //     }
-    //   }
-    });
-  }
+            const pFileContents = this.app.vault.read(matchingFile);
+            pFileContents.then((fileContents) => {
+                const container = el.createDiv({ cls: ["dynamic-embed"] });
+                MarkdownRenderer.renderMarkdown(fileContents, container, ctx.sourcePath, this);
+            });
+        });
+    }
 }

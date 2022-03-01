@@ -1,33 +1,29 @@
 {
   "main": {
-    "id": "27256edcd15def3d",
+    "id": "c6d95ba47a15f073",
     "type": "split",
     "children": [
       {
-        "id": "bfa3c03b46ea2de3",
+        "id": "52ee23e7e641197d",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "Project.md",
-            "mode": "preview",
-            "source": false
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "65ed6980c31d7828",
+    "id": "222d18ce6b038ae6",
     "type": "split",
     "children": [
       {
-        "id": "3972900b8b9deefd",
+        "id": "447eb104df8657cf",
         "type": "tabs",
         "children": [
           {
-            "id": "5e88e5f6aa4a7a35",
+            "id": "30e653adbf01c662",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -35,7 +31,7 @@
             }
           },
           {
-            "id": "f4b2c50dff2f58ad",
+            "id": "bf1cd4fc2cc7606e",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -56,20 +52,19 @@
     "width": 300
   },
   "right": {
-    "id": "8d381f215da97166",
+    "id": "f3704333f6bb308d",
     "type": "split",
     "children": [
       {
-        "id": "8bb6fb3f58b44e2c",
+        "id": "6bc68e1bc472027d",
         "type": "tabs",
         "children": [
           {
-            "id": "df7e5e70709c49f8",
+            "id": "2d27ae65625d201a",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Project.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -84,12 +79,9 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
-  "active": "bfa3c03b46ea2de3",
-  "lastOpenFiles": [
-    "Project.md",
-    "script.md",
-    "Item.md"
-  ]
+  "active": "52ee23e7e641197d",
+  "lastOpenFiles": []
 }

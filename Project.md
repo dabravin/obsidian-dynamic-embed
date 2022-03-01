@@ -1,5 +1,6 @@
 ```dataview
 LIST FROM [[]]
 ```
-
-![[script]]
+```dynamic-embed
+[[script]]
+```
