@@ -1,0 +1,5 @@
+```dataview
+LIST FROM [[]]
+```
+
+![[script]]

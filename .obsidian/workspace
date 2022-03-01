@@ -1,0 +1,95 @@
+{
+  "main": {
+    "id": "27256edcd15def3d",
+    "type": "split",
+    "children": [
+      {
+        "id": "bfa3c03b46ea2de3",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "script.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "65ed6980c31d7828",
+    "type": "split",
+    "children": [
+      {
+        "id": "3972900b8b9deefd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5e88e5f6aa4a7a35",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "f4b2c50dff2f58ad",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "8d381f215da97166",
+    "type": "split",
+    "children": [
+      {
+        "id": "8bb6fb3f58b44e2c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "df7e5e70709c49f8",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "script.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "active": "bfa3c03b46ea2de3",
+  "lastOpenFiles": [
+    "script.md",
+    "Project.md",
+    "Item.md"
+  ]
+}
