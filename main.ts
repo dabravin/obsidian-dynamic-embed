@@ -12,8 +12,7 @@ export default class ExamplePlugin extends Plugin {
             }
             const fileName = fileNameMatch[1];
 
-            const vaultMdFiles = this.app.vault.getMarkdownFiles();
-            const matchingFile = vaultMdFiles.filter((e) => e.basename === fileName).first();
+            const matchingFile = this.app.metadataCache.getFirstLinkpathDest(fileName, '');
 
             if (!matchingFile) {
                 el.createEl("pre", { text: "Dynamic Embed: Error: File link not found", cls: ["dynamic-embed", "dynamic-embed-error"] });
