@@ -1,6 +1,6 @@
 [
   "obsidian-sample-plugin",
-  "obsidian-dynamic-embed",
   "dataview",
-  "hot-reload"
+  "hot-reload",
+  "obsidian-dynamic-embed"
 ]

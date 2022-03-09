@@ -1,29 +1,40 @@
 import { Plugin, MarkdownRenderer } from "obsidian";
 
-export default class ExamplePlugin extends Plugin {
+export default class DynamicEmbed extends Plugin {
+    static codeBlockKeyword = "dynamic-embed";
+    static containerClass = "dynamic-embed";
+    static errorClass = "dynamic-embed-error";
+
+    static displayError = (parent: HTMLElement, text: String) => {
+        parent.createEl("pre", { text: "Dynamic Embed: Error: " + text, cls: [DynamicEmbed.containerClass, DynamicEmbed.errorClass] });
+    }
+
     async onload() {
-        this.registerMarkdownCodeBlockProcessor("dynamic-embed", (source, el, ctx) => {
+        this.registerMarkdownCodeBlockProcessor(DynamicEmbed.codeBlockKeyword, async (source, el, ctx) => {
             const pattern = /\[\[([^\[\]]+?)\]\]/u;
             const fileNameMatch = pattern.exec(source);
 
+
             if (!fileNameMatch) {
-                el.createEl("pre", { text: "Dynamic Embed: Error: Bad file link", cls: ["dynamic-embed", "dynamic-embed-error"] });
+                DynamicEmbed.displayError(el, "Bad file link");
                 return;
             }
             const fileName = fileNameMatch[1];
-
             const matchingFile = this.app.metadataCache.getFirstLinkpathDest(fileName, '');
 
             if (!matchingFile) {
-                el.createEl("pre", { text: "Dynamic Embed: Error: File link not found", cls: ["dynamic-embed", "dynamic-embed-error"] });
+                DynamicEmbed.displayError(el, "File link not found");
                 return;
             }
 
-            const pFileContents = this.app.vault.read(matchingFile);
-            pFileContents.then((fileContents) => {
-                const container = el.createDiv({ cls: ["dynamic-embed"] });
-                MarkdownRenderer.renderMarkdown(fileContents, container, ctx.sourcePath, this);
-            });
+            if (matchingFile.extension !== "md") {
+                DynamicEmbed.displayError(el, "Bad file extension found, expected markdown");
+                return;
+            }
+
+            const fileContents = await this.app.vault.cachedRead(matchingFile);
+            const container = el.createDiv({ cls: [DynamicEmbed.containerClass] });
+            MarkdownRenderer.renderMarkdown(fileContents, container, ctx.sourcePath, this);
         });
     }
 }

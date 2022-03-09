@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Item.md",
+            "file": "Project.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Item.md",
+                "file": "Project.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,8 +88,9 @@
   },
   "active": "bfa3c03b46ea2de3",
   "lastOpenFiles": [
-    "Item.md",
     "Project.md",
-    "script.md"
+    "script.md",
+    "NotMarkdown.md",
+    "Item.md"
   ]
 }

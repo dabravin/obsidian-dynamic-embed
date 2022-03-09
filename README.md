@@ -4,6 +4,7 @@ Embed snippets, templates and any linkables by delegating the current scope to t
 
 ## Example
 Import the contents of file ***`Script-note-template file name link.md`***, existing in the active vault.
+Note that the link syntax does **not** support heading/block links (e.g. `[[file#heading1]]`)
 ~~~
 ```dynamic-embed
 [[Script-note-template file name link]]
